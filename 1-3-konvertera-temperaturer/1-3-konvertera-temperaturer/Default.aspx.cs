@@ -16,7 +16,10 @@ namespace _1_3_konvertera_temperaturer
 
         protected void ConvertButton_Click(object sender, EventArgs e)
         {
-            if(IsValid){}
+            if(IsValid){
+            
+            
+            }
         }
     }
 }
