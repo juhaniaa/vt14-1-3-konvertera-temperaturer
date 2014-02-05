@@ -10,7 +10,7 @@ namespace _1_3_konvertera_temperaturer.Model
         public static int CelsiusToFahrenheit(int degreesC){
 
             int fahrenheit;
-            fahrenheit = degreesC * (9/5) + 32;
+            fahrenheit = degreesC * 9 / 5 + 32;
             return fahrenheit;
         }
 

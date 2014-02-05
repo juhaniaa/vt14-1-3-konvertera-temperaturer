@@ -1,0 +1,16 @@
+﻿.field-validation-error {
+    color:red;
+    font-weight:bold;
+}
+
+.temperature-table {
+    border:1px dashed black;
+}
+
+.form-label {
+
+}
+
+.temperature-table, .field-validation-error, .convert-button {
+    margin:10px 0;
+}
