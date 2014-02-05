@@ -11,6 +11,37 @@
 
 }
 
+#table-div {
+    float:left;
+    margin:35px 10px 0px 10px;
+}
+
+#form-div {
+    float:left;
+}
+
+h1 {
+    font-size:22px;
+}
+
+td {
+    font-weight:bold;
+    text-align:center;
+}
+
+th {
+    font-weight:normal;
+    text-align:center;
+    padding:0px 4px 0px 4px;
+    width:50%;
+    background-color:#525252;
+    color:white;
+}
+
+#firstTemperatureHeader, #secondTemperatureHeader {
+    background-color:#dbd6d6;
+}
+
 .temperature-table, .field-validation-error, .convert-button {
     margin:10px 0;
 }

@@ -9,8 +9,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        
+    <div id="form-div">
         <h1>Konvertera temperaturer</h1>
-    <div>
+
         <%-- Starttemperatur --%>
         <asp:Label ID="startTemp" runat="server" Text="Starttemp" CssClass="form-label"></asp:Label>
         <br />
@@ -49,11 +51,12 @@
         <%-- Felmeddelanden --%>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Fel inträffade. Åtgärda felen och försök igen." CssClass="field-validation-error" />
     </div>
-    <div>
+    <div id="table-div">
         <%-- här genereras tabellen med konverterade temperaturer --%>
         <asp:Table ID="Table1" runat="server" Visible="false" CssClass="temperature-table">
             <asp:TableHeaderRow>
-                <asp:TableHeaderCell Text="Temperaturer"></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Konverterade"></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="temperaturer"></asp:TableHeaderCell>
             </asp:TableHeaderRow>
             <asp:TableRow>
                 <asp:TableCell ID="firstTemperatureHeader"></asp:TableCell>
