@@ -14,83 +14,54 @@ namespace _1_3_konvertera_temperaturer
 
         }
 
+        // då konvertera knappen klickats
         protected void ConvertButton_Click(object sender, EventArgs e)
         {
-            // då konvertera knappen klickats
-            if(IsValid){
-                // och formuläret klarar valideringen
+
+            // och formuläret klarar valideringen
+            if(IsValid){                
 
                 // spara de värden som användaren matat in
                 var convertFrom = int.Parse(startTempBox.Text);
                 var endT = int.Parse(endTempBox.Text);
                 var increaseT = int.Parse(increaseTempBox.Text);                
-                int convertTo;
 
-                // om användaren valt celsius till fahrenheit
-                if(celsiusRadio.Checked == true){
-
-                    // tabellrubriker
-                    firstTemperatureHeader.Text = "Celsius";
-                    secondTemperatureHeader.Text = "Fahrenheit";
-
-                    // så länge som värdet som skall konverteras är lägre än sluttemperaturen
-                    while (convertFrom <= endT)
-                    {
-                        // anropa Celsius till Fahrenheit metoden och 
-                        convertTo = Model.TemperatureConverter.CelsiusToFahrenheit(convertFrom);
-
-                        // lägg till ny rad i tabellen
-                        TableRow tRow = new TableRow();
-                        Table1.Rows.Add(tRow);
-
-                        // lägg till celsius värdet i första cellen
-                        TableCell convertFromCell = new TableCell();
-                        convertFromCell.Text = convertFrom.ToString();
-                        tRow.Cells.Add(convertFromCell);
-
-                        // och fahrenheit värdet i andra cellen
-                        TableCell convertToCell = new TableCell();
-                        convertToCell.Text = convertTo.ToString();
-                        tRow.Cells.Add(convertToCell);
-
-                        // öka sedan på önskad konverterings temperatur med temperatursteg
-                        convertFrom = convertFrom + increaseT;
-                    }
-                }
-
-                // om användaren valt fahrenheit till celsius
-                else if (fahrenheitRadio.Checked == true)
+                // så länge som värdet som skall konverteras är lägre än sluttemperaturen
+                while (convertFrom <= endT)
                 {
-                    // tabellrubriker
-                    firstTemperatureHeader.Text = "Fahrenheit";
-                    secondTemperatureHeader.Text = "Celsius";
+                    // lägg till ny rad i tabellen
+                    TableRow tRow = new TableRow();
+                    Table1.Rows.Add(tRow);
 
-                    // så länge som värdet som skall konverteras är lägre än sluttemperaturen
-                    while (convertFrom <= endT)
-                    {
-                        // anropa Fahrenheit till Celsius metoden och
-                        convertTo = Model.TemperatureConverter.FahrenheitToCelsius(convertFrom);                        
+                    // lägg till värdet som skall konverteras i första cellen
+                    TableCell convertFromCell = new TableCell();
+                    convertFromCell.Text = convertFrom.ToString();
+                    tRow.Cells.Add(convertFromCell);
 
-                        // lägg till ny rad i tabellen
-                        TableRow tRow = new TableRow();
-                        Table1.Rows.Add(tRow);
+                    // och det konverterade värdet i andra cellen
+                    TableCell convertToCell = new TableCell();
 
-                        // lägg till fahrenheit värdet i första cellen
-                        TableCell convertFromCell = new TableCell();
-                        convertFromCell.Text = convertFrom.ToString();
-                        tRow.Cells.Add(convertFromCell);
+                    if (celsiusRadio.Checked == true) {
+                        convertToCell.Text = Model.TemperatureConverter.CelsiusToFahrenheit(convertFrom).ToString();
 
-                        // och celsius värdet i andra cellen
-                        TableCell convertToCell = new TableCell();
-                        convertToCell.Text = convertTo.ToString();
-                        tRow.Cells.Add(convertToCell);
+                        // tabellrubriker
+                        firstTemperatureHeader.Text = "Celsius";
+                        secondTemperatureHeader.Text = "Fahrenheit";
+                    }
+                    else if(fahrenheitRadio.Checked == true){
+                        convertToCell.Text = Model.TemperatureConverter.FahrenheitToCelsius(convertFrom).ToString();
 
-                        // öka sedan på önskad konverterings temperatur med temperatursteg
-                        convertFrom = convertFrom + increaseT;
+                        // tabellrubriker
+                        firstTemperatureHeader.Text = "Fahrenheit";
+                        secondTemperatureHeader.Text = "Celsius";
                     }
 
-                }
+                    tRow.Cells.Add(convertToCell);
 
+                    // öka sedan på önskad konverterings temperatur med temperatursteg
+                    convertFrom = convertFrom + increaseT;
+                }
+                
                 // slutligen gör tabellen synlig
                 Table1.Visible = true;
            

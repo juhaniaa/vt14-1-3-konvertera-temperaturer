@@ -15,15 +15,16 @@
 
         <%-- Starttemperatur --%>
         <asp:Label ID="startTemp" runat="server" Text="Starttemp" CssClass="form-label"></asp:Label>
-        <br />
+        
         <asp:TextBox ID="startTempBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Starttemp får inte vara tom" ControlToValidate="startTempBox" Display="Dynamic" Text="*"></asp:RequiredFieldValidator>
         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="StartTemp måste vara ett heltal" ControlToValidate="startTempBox" Type="Integer" Operator="DataTypeCheck" Display="Dynamic" Text="*"></asp:CompareValidator>
         <br />
 
         <%-- Sluttemperatur --%>
+        <div>
         <asp:Label ID="endTemp" runat="server" Text="Sluttemp" CssClass="form-label"></asp:Label>
-        <br />
+        </div>
         <asp:TextBox ID="endTempBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Sluttemp får inte vara tom" ControlToValidate="endTempBox" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
         <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Sluttemp måste vara ett heltal större än starttemp" ControlToValidate="endTempBox" Operator="GreaterThan" Type="Integer" ControlToCompare="startTempBox" Text="*" Display="Dynamic"></asp:CompareValidator>
@@ -31,7 +32,7 @@
 
         <%-- Temperatursteg --%>
         <asp:Label ID="increaseTemp" runat="server" Text="Tempeartursteg" CssClass="form-label"></asp:Label>
-        <br />
+        
         <asp:TextBox ID="increaseTempBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Temperatursteg får inte vara tom" ControlToValidate="increaseTempBox" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
         <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Temperatursteg måste vara ett heltal mellan 1 och 100" ControlToValidate="increaseTempBox" MaximumValue="100" MinimumValue="1" Type="Integer" Text="*" Display="Dynamic"></asp:RangeValidator>

@@ -8,7 +8,8 @@
 }
 
 .form-label {
-
+    margin-top:10px;
+    display:block;
 }
 
 #table-div {
